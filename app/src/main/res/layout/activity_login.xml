@@ -16,7 +16,7 @@
         android:background="@android:drawable/dialog_holo_light_frame"
         android:ems="10"
         android:hint="password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
