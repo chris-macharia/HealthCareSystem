@@ -16,7 +16,7 @@
         android:text="Beta Health"
         android:textAlignment="center"
         android:textColor="#F6444A"
-        android:textSize="30sp"
+        android:textSize="43sp"
         android:textStyle="bold" />
 
     <androidx.gridlayout.widget.GridLayout
