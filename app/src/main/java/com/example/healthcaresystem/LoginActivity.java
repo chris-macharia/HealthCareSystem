@@ -2,7 +2,9 @@ package com.example.healthcaresystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -30,15 +32,29 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = edUserName.getText().toString();
                 String password = edPassword.getText().toString();
+                //connect to DB
+                Database  db = new Database(getApplicationContext(), "healthsystemdb", null, 1);
 
-                if(username.length() < 8 || password.length() < 8)
+                //Validate user credentials
+                if(username.length() < 8 || password.length() < 8) //User not found
                 {
                     Toast.makeText(getApplicationContext(), "Username and Password must be longer than 8 characters",
                             Toast.LENGTH_SHORT).show();
                 }
-                else
+                else //User found
                 {
-                    Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                    if(db.login(username,password)==1){
+                        Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                        //Save Username and Password in local memory
+                        SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("username", username);
+                        editor.apply(); //save with Key and Value
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
 
 

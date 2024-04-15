@@ -2,6 +2,7 @@ package com.example.healthcaresystem;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -23,7 +24,7 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    //Register new users
+    //Register new users-----Sign Up page
     public void registerUser(String username, String email, String passwd){
         ContentValues cv = new ContentValues();
         cv.put("username",username);
@@ -32,5 +33,20 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         db.insert("users", null, cv);
         db.close();
+    }
+
+    //Log in existing users
+    public int login(String username, String password){
+        int result = 0; //user not found
+        String str[] = new String[2];
+        str[0] = username;
+        str[1] = password;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("select * from users where username=? and password=?", str);
+        if(c.moveToFirst()){
+            result=1; //user exist
+        }
+
+        return result;
     }
 }
