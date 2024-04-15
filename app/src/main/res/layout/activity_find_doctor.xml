@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_bg"
-    tools:context=".HomeActivity">
+    android:background="@drawable/doctor_bg"
+    tools:context=".FindDoctorActivity">
 
     <TextView
         android:id="@+id/appTitle"
@@ -22,16 +22,115 @@
         android:textSize="43sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/appTitleTopDoctors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:text="Top Doctors"
+        android:textAlignment="center"
+        android:textColor="#F6444A"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/appTitle"
+        android:layout_below="@+id/appTitleTopDoctors"
         android:layout_margin="20dp"
         app:columnCount="2"
         app:rowCount="3">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardFindDoctor"
+            android:id="@+id/cardFindDoctorSurgeon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/transparent_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_column="0"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            app:layout_columnWeight="1"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/doctor_icon">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FIND DOCTOR"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFindDoctorTherapist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/transparent_background"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_column="1"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:layout_rowWeight="1"
+            app:layout_columnWeight="1"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/doctor_icon">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FIND DOCTOR"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFindDoctorDentist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/transparent_background"
@@ -73,7 +172,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardArticles"
+            android:id="@+id/cardFindDoctorOptician"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/transparent_background"
@@ -97,14 +196,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/information_icon">
+                    android:src="@drawable/doctor_icon">
 
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ARTICLES"
+                    android:text="FIND DOCTOR"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -113,9 +212,8 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardCart"
+            android:id="@+id/cardFindDoctorPathologist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/transparent_background"
@@ -139,14 +237,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/cart_icon">
+                    android:src="@drawable/doctor_icon">
 
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CART"
+                    android:text="FIND DOCTOR"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -157,7 +255,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardLogout"
+            android:id="@+id/cardFindDoctorPhysician"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/transparent_background"
@@ -181,14 +279,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/logout_icon">
+                    android:src="@drawable/doctor_icon">
 
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOG OUT"
+                    android:text="FIND DOCTOR"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -199,6 +297,7 @@
         </androidx.cardview.widget.CardView>
 
     </androidx.gridlayout.widget.GridLayout>
+
 
 
 </RelativeLayout>
