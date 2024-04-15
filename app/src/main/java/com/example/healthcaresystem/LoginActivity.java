@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
-
+/* This page handles the Log in process of the user. */
 public class LoginActivity extends AppCompatActivity {
     EditText edUserName, edPassword;
     Button btn;
